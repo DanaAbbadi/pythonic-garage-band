@@ -13,7 +13,7 @@ To create a Garage Band with Object Oriented Programming, Using Python classes t
 
 # PR Link:
 
-https://github.com/DanaAbbadi/math-series/pull/1
+https://github.com/DanaAbbadi/pythonic-garage-band/pull/1
 
 <br>
 <hr>
