@@ -10,6 +10,9 @@ class Band(ABC):
         Band.all_bands.append(self)
 
     def play_solos(self):
+        """
+        Asks each member musician to play a solo, in the order they were added to band.
+        """
         solo=[]
         for i in self.members :
             solo.append(i.play_solo())
@@ -28,7 +31,32 @@ class Band(ABC):
 
     @classmethod
     def to_list(cls):
+        """
+        Returns a list of previously created Band instances
+        """
         return cls.all_bands
+
+    @staticmethod
+    def create_from_data(data):
+          
+        data.seek(0)
+        to_formate = data.readlines()
+        print(to_formate[0])
+        name = input("{}".format(to_formate[1]))
+        print(to_formate[2])
+
+        guitar = Guitarist(input("{}".format(to_formate[3])))
+
+        bass_name = input("{}".format(to_formate[4]))
+        bass_instrument = input("{}".format(to_formate[5]))
+        bass
+
+        drummer = input("{}".format(to_formate[6]))
+
+        new_band = Band(name,[])
+
+
+
 
 
 
@@ -36,7 +64,6 @@ class Musician(ABC):
 
     def __init__(self,name):
         self.name = name
-        # self.members = members
 
     def __str__(self):
         return self.name
@@ -45,10 +72,16 @@ class Musician(ABC):
 
     @staticmethod
     def play_solo():
+        """
+         Returns the solo play for the member.
+        """
         pass
     
     @staticmethod
     def get_instrument():
+        """
+         Returns the instrument for the band member.
+        """
         pass
     
    
@@ -81,11 +114,15 @@ class Drummer(Musician):
         return "Drum"
 
 if __name__ == "__main__" :
-    guitarist = Guitarist("guitarist")
-    drummer = Drummer("drummer")
-    bassist = Bassist("bassist","Bass guitar")
-    tbep = Band("The Black Eyed Peas", [guitarist,drummer],"I gotta a feeling")
-    print(bassist.get_instrument())
+    # guitarist = Guitarist("guitarist")
+    # drummer = Drummer("drummer")
+    # bassist = Bassist("bassist","Bass guitar")
+    # tbep = Band("The Black Eyed Peas", [guitarist,drummer],"I gotta a feeling")
+    # print(bassist.get_instrument())
+    
+    file1 = open("assets/data.txt","r+")  
+    Band.create_from_data(file1)
+ 
 
     # userBand = Band(input("Enter the band name:"),[Guitarist(input("enter a guitarist member:")), Drummer(input("Enter a drummer member:")), Bassist(input("Enter a bassist member:"),input("Enter the bass instrument:"))], input("Enter your favourite song from the band:"))
     # print(type(tbep.members[0]))
