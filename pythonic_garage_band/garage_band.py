@@ -49,16 +49,14 @@ class Band(ABC):
 
         bass_name = input("{}".format(to_formate[4]))
         bass_instrument = input("{}".format(to_formate[5]))
-        bass
+        bass = Bassist(bass_name, bass_instrument)
 
-        drummer = input("{}".format(to_formate[6]))
+        drummer = Drummer(input("{}".format(to_formate[6])))
 
-        new_band = Band(name,[])
+        song = input("{}".format(to_formate[7]))
 
-
-
-
-
+        new_band = Band(name,[guitar,bass,drummer],song)
+        return new_band
 
 class Musician(ABC):
 
@@ -121,7 +119,9 @@ if __name__ == "__main__" :
     # print(bassist.get_instrument())
     
     file1 = open("assets/data.txt","r+")  
-    Band.create_from_data(file1)
+    new_band = Band.create_from_data(file1)
+    file = open('assets/ready.txt','w')
+    file.write(new_band.__str__())
  
 
     # userBand = Band(input("Enter the band name:"),[Guitarist(input("enter a guitarist member:")), Drummer(input("Enter a drummer member:")), Bassist(input("Enter a bassist member:"),input("Enter the bass instrument:"))], input("Enter your favourite song from the band:"))

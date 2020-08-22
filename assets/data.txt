@@ -1,14 +1,8 @@
 Create your own band!!
-
 First let's start with the name of the band : 
-
 Now, choose your members. You can add guitarists, bassists and drummers.
-
 Name your guitarist: 
-
 Name your bassist: 
 What instrument will the bassist use? 
-
 Name your drummer: 
-
 Enter The first song title for your band: 
